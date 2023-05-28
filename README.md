@@ -1,3 +1,10 @@
+# SL - React.js Training
+This project is created to submit assignments required for training session
+
+## Assignment 1
+<img width="1440" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/c6f9e25e-99d9-431b-9dd1-16f1a602e734">
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
