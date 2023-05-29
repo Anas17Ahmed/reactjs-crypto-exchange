@@ -7,9 +7,17 @@ This project is created to submit assignments required for training session
 
 ### Login Page
 <img width="1440" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/b8363217-005e-4c7c-ae62-39e79222a57f">
+<img width="1437" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/b3e6015c-1119-4feb-a39b-0cc17b95119c">
 
 ### SignUp Page
 <img width="1440" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/f8074b7d-b935-4a90-8d76-ed2d7b2babf7">
+
+## Assignment 2
+<img width="1438" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/7a247eac-da2e-42fb-bffa-9c3d683917e8">
+<img width="1435" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/3f9a1486-25fd-4553-9e27-74bb95384568">
+<img width="1437" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/7d459245-4f24-4316-a227-4849bf870ce0">
+<img width="1440" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/bef56ffc-f8c6-4a82-b3ac-dc6235f8b15a">
+
 
 # Getting Started with Create React App
 
