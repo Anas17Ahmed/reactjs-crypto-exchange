@@ -18,6 +18,10 @@ This project is created to submit assignments required for training session
 <img width="1437" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/7d459245-4f24-4316-a227-4849bf870ce0">
 <img width="1440" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/bef56ffc-f8c6-4a82-b3ac-dc6235f8b15a">
 
+## Assignment 3
+<img width="1440" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/e3397fe2-59a6-47df-b0e2-ac0df9e43b70">
+<img width="1440" alt="image" src="https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/1101679d-1364-4034-b337-01913da22c7a">
+
 
 # Getting Started with Create React App
 
