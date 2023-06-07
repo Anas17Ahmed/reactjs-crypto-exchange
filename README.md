@@ -27,6 +27,7 @@ This project is created to submit assignments required for training session
 ![image](https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/1409614d-63e9-49cf-81be-67a494e9793c)
 
 ### Deploy App on Netlify
+App Link: https://storied-cendol-eb4a73.netlify.app/
 ![image](https://github.com/Anas17Ahmed/reactjs-crypto-exchange/assets/8957357/f691b4d8-b182-4d82-b29d-41f9bbda1586)
 
 ### Test cases
