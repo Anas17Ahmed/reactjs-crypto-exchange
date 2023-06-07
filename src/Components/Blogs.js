@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Blogs = () => {
-  const [blogs, setBlogs] = useState(JSON.parse(localStorage.getItem('blogs')|| '[]'));
+  const [blogs, setBlogs] = useState(JSON.parse(localStorage.getItem('blogs') || '[]'));
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [newBlog, setNewBlog] = useState({
@@ -12,7 +12,7 @@ const Blogs = () => {
 
   useEffect(() => {
     // Retrieve blogs from local storage
-    const storedBlogs = JSON.parse(localStorage.getItem('blogs')|| '[]');
+    const storedBlogs = JSON.parse(localStorage.getItem('blogs') || '[]');
     if (storedBlogs) {
       setBlogs(storedBlogs);
     }
@@ -110,9 +110,9 @@ const Blogs = () => {
               <td>{blog.subtitle}</td>
               <td>{blog.author}</td>
               <td>
-                <button className="btn btn-sm btn-info mr-1" onClick={() => handleViewBlog(blog.id)}>View</button>
-                <button className="btn btn-sm btn-primary mr-1" onClick={() => handleEditBlog(blog.id)}>Edit</button>
-                <button className="btn btn-sm btn-danger" onClick={() => handleDeleteBlog(blog.id)}>Delete</button>
+                <button className="btn btn-sm btn-info mr-1" onClick={() => handleViewBlog(blog.id)} data-testid={`view-button-${blog.id}`}>View</button>
+                <button className="btn btn-sm btn-primary mr-1" onClick={() => handleEditBlog(blog.id)} data-testid={`edit-button-${blog.id}`}>Edit</button>
+                <button className="btn btn-sm btn-danger" onClick={() => handleDeleteBlog(blog.id)} data-testid={`delete-button-${blog.id}`}>Delete</button>
               </td>
             </tr>
           ))}
@@ -121,42 +121,42 @@ const Blogs = () => {
 
       {(modalOpen == 'edit' || modalOpen == 'add') && (
         <div className={`modal ${modalOpen ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: modalOpen ? 'block' : 'none' }}>
-            <div className="modal-dialog">
-            <div className="modal-content">
-                <div className="modal-header">
+          <div className="modal-dialog">
+            <form className="modal-content">
+              <div className="modal-header">
                 {modalOpen === 'edit' ? (
-                    <h5 className="modal-title">Edit Blog</h5>
+                  <h5 className="modal-title">Edit Blog</h5>
                 ) : (
-                    <h5 className="modal-title">Add New Blog</h5>
+                  <h5 className="modal-title">Add New Blog</h5>
                 )}
                 <button type="button" className="close" onClick={() => setModalOpen(false)}>
-                    <span aria-hidden="true">&times;</span>
+                  <span aria-hidden="true">&times;</span>
                 </button>
-                </div>
-                <div className="modal-body">
+              </div>
+              <div className="modal-body">
                 <div className="form-group">
-                    <label>Title</label>
-                    <input type="text" className="form-control" name="title" value={newBlog.title} onChange={handleInputChange} />
-                </div>
-                <div className="form-group">
-                    <label>Subtitle</label>
-                    <input type="text" className="form-control" name="subtitle" value={newBlog.subtitle} onChange={handleInputChange} />
+                  <label htmlFor="title">Title</label>
+                  <input type="text" className="form-control" id="title" name="title" value={newBlog.title} onChange={handleInputChange} />
                 </div>
                 <div className="form-group">
-                    <label>Author</label>
-                    <input type="text" className="form-control" name="author" value={newBlog.author} onChange={handleInputChange} />
+                  <label htmlFor="subtitle">Subtitle</label>
+                  <input type="text" className="form-control" id="subtitle" name="subtitle" value={newBlog.subtitle} onChange={handleInputChange} />
                 </div>
+                <div className="form-group">
+                  <label htmlFor="author">Author</label>
+                  <input type="text" className="form-control" id="author" name="author" value={newBlog.author} onChange={handleInputChange} />
                 </div>
-                <div className="modal-footer">
+              </div>
+              <div className="modal-footer">
                 {modalOpen === 'edit' ? (
-                    <button type="button" className="btn btn-primary" onClick={handleUpdateBlog}>Update</button>
+                  <button type="button" className="btn btn-primary" onClick={handleUpdateBlog}>Update</button>
                 ) : (
-                    <button type="button" className="btn btn-primary" onClick={handleAddBlog}>Save</button>
+                  <button type="button" className="btn btn-primary" onClick={handleAddBlog}>Save</button>
                 )}
                 <button type="button" className="btn btn-secondary" onClick={() => setModalOpen(false)}>Cancel</button>
-                </div>
-            </div>
-            </div>
+              </div>
+            </form>
+          </div>
         </div>
       )}
 

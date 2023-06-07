@@ -9,6 +9,8 @@ const Login = ({ users, setIsLoggedIn, setCurrentUser }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [isBlocked, setIsBlocked] = useState(false);
 
+  const [errors, setErrors] = useState({ email: '', password: ''});
+
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -26,6 +28,29 @@ const Login = ({ users, setIsLoggedIn, setCurrentUser }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    // Validate fields
+    // Reset errors
+    setErrors({});
+
+    // Validate fields
+    const errors = {};
+
+    if (email.trim() === '') {
+      errors.email = 'Email is required';
+    }
+
+    if (password.trim() === '') {
+      errors.password = 'Password is required';
+    }
+
+    // Add additional field validations as per your requirements
+
+    // If there are errors, update the state and prevent form submission
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
+    }
 
     // Verify email and password
     const user = users.find((user) => user.email === email);
@@ -70,10 +95,12 @@ const Login = ({ users, setIsLoggedIn, setCurrentUser }) => {
         <div className="form-group">
           <label>Email</label>
           <input type="email" className="form-control" value={email} onChange={handleEmailChange} />
+          {errors.email && <div className="error">{errors.email}</div>}
         </div>
         <div className="form-group">
           <label>Password</label>
           <input type="password" className="form-control" value={password} onChange={handlePasswordChange} />
+          {errors.password && <div className="error">{errors.password}</div>}
         </div>
         <button type="submit" className="btn btn-primary" disabled={isBlocked}>Login</button>
       </form>

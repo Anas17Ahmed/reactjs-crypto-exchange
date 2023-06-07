@@ -14,12 +14,6 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     navigate('/login');
   };
 
-  useEffect(() => {
-    if (window.location.pathname === '/') {
-      navigate(isLoggedIn ? '/dashboard' : 'login');
-    }
-  }, []);
-
   return (
     <header className="container py-4">
       <nav>

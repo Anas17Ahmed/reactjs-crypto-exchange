@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from "./ProtectedRoute";
 import Header from './Components/Layouts/Header';
 import Footer from './Components/Layouts/Footer';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import Dashboard from './Components/Dashboard';
 import Blogs from './Components/Blogs';
+
 
 const App = () => {
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users') || '[]'));
@@ -14,17 +16,17 @@ const App = () => {
 
   // Load users data from localStorage on component mount
   useEffect(() => {
-    const storedUsers = localStorage.getItem('users') || [];
+    const storedUsers = localStorage.getItem('users') || '[]';
     if (storedUsers) {
       setUsers(JSON.parse(storedUsers));
     }
 
-    const isLoggedIn = localStorage.getItem('isLoggedIn') || false;
+    const isLoggedIn = localStorage.getItem('isLoggedIn') || 'false';
     if (isLoggedIn) {
       setIsLoggedIn(JSON.parse(isLoggedIn));
     }
 
-    const currentUser = localStorage.getItem('currentUser');
+    const currentUser = localStorage.getItem('currentUser') || 'null';
     if (currentUser) {
       setCurrentUser(JSON.parse(currentUser));
     }
@@ -49,10 +51,26 @@ const App = () => {
     <Router>
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
+        {/* Logged In URLs */}
+        <Route path="/" element={ 
+          <ProtectedRoute isAllowed={isLoggedIn}>
+            <Dashboard currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} setUsers={setUsers} />
+          </ProtectedRoute> 
+        }/>
+        <Route path="/dashboard" element={
+          <ProtectedRoute isAllowed={isLoggedIn}>
+            <Dashboard currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} setUsers={setUsers} />
+          </ProtectedRoute> 
+        }/>
+        <Route path="/blogs" element={
+          <ProtectedRoute isAllowed={isLoggedIn}>
+            <Blogs />
+          </ProtectedRoute> 
+        }/>
+
+        {/* Non Logged In URLs */}
         <Route path="/login" element={<Login users={users} setIsLoggedIn={setIsLoggedIn} setCurrentUser={setCurrentUser} />} />
         <Route path="/signup" element={<Signup users={users} setUsers={setUsers} />} />
-        <Route path="/dashboard" element={<Dashboard currentUser={currentUser} setCurrentUser={setCurrentUser} users={users} setUsers={setUsers} />} />
-        <Route path="/blogs" element={<Blogs />} />
         {/* Add more routes for other pages */}
       </Routes>
       <Footer />
